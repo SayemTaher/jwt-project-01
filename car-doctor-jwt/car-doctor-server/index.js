@@ -42,6 +42,12 @@ const verifyToken = async(req,res,next) => {
     })
     
 }
+// clear token after logout 
+app.post('/logOut',async(req,res) => {
+    const user = req.body 
+    console.log('logged out ', user)
+    res.clearCookie('token',{maxAge:0}).send({success:true})
+})
 
 // database connect 
 
